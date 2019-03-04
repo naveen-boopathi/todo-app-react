@@ -6,9 +6,7 @@ import AddTodo from './components/AddTodo'
 
 class App extends Component {
   state = {
-    todos: [
-      { id: 1, title: 'Add your todos to the list!', completed: false },
-    ]
+    todos: []
   }
   toggleComplete = (id) => {
     this.setState({

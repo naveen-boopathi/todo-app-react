@@ -10,12 +10,13 @@ export class AddTodo extends Component {
     })
   }
   onClick = (e) => {
+    e.preventDefault()
     this.props.addTodo(this.state.title)
     this.setState({ title: '' })
   }
   render() {
     return (
-      <form style={{ display: 'flex' }}>
+      <form style={{ display: 'flex' }} onSubmit={this.onClick}>
         <input
           type='text'
           style={{ flex: '10', padding: '10px 10px' }}
@@ -23,8 +24,9 @@ export class AddTodo extends Component {
           placeholder='Add Todo'
           value={this.state.title}
           onChange={this.onChange}
+          autoComplete='off'
         />
-        <button type='button' className="btn" style={{ flex: '1' }} onClick={this.onClick}>Submit</button>
+        <button type='submit' className="btn" style={{ flex: '1' }}>Submit</button>
       </form>
     )
   }
